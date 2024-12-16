@@ -1,28 +1,33 @@
 ---
-title: La Palma Earthquakes
+title: Dissertation proposal
 author:
-  - name: Steve Purves
-    orcid: 0000-0002-0760-5497
+  - name: A. Brooke Sasia
+    orcid: 0000-0002-1311-6606
     corresponding: true
-    email: steve@curvenote.com
+    email: sasia@wisc.edu
     roles:
       - Investigation
       - Project administration
       - Software
       - Visualization
     affiliations:
-      - Curvenote
-  - name: Rowan Cockett
-    orcid: 0000-0002-7859-8394
+      - Department of Psychology, University of Wisconsin-Madison
+      - Waisman Center, University of Wisconsin-Madison
+      - Center for Demography on Health and Aging, University of Wisconsin-Madison
+  - name: James J. Li
+    orcid: 0000-0001-8031-7216
     corresponding: false
     roles: []
     affiliations:
-      - Curvenote
+      - Department of Psychology, University of Wisconsin-Madison
+      - Waisman Center, University of Wisconsin-Madison
+      - Center for Demography on Health and Aging, University of Wisconsin-Madison
 keywords:
-  - La Palma
-  - Earthquakes
+  - Externalizing
+  - HiTOP
+  - Development
 abstract: |
-  In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaled the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...
+  In September 2021, a significant jump in seismic activity on the island of La Palma (Canary Islands, Spain) signaledn the start of a volcanic crisis that still continues at the time of writing. Earthquake data is continually collected and published by the Instituto Geográphico Nacional (IGN). ...
 plain-language-summary: |
   Earthquake data for the island of La Palma from the September 2021 eruption is found ...
 key-points:
@@ -30,75 +35,80 @@ key-points:
   - Earthquake events on La Palma are consistent with the presence of both mantle and crustal reservoirs.
 date: last-modified
 bibliography: references.bib
-citation:
-  container-title: Earth and Space Science
 number-sections: true
+format:
+  html: default
+  docx: default
+  apaish-typst: 
+    documentmode: man
 ---
 
 ## Introduction
 
-```{r}
-eruptions <- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021)
-n_eruptions <- length(eruptions)
-```
-
-```{r}
-#| label: fig-timeline
-#| fig-cap: Timeline of recent earthquakes on La Palma
-#| fig-alt: An event plot of the years of the last 8 eruptions on La Palma.
-#| fig-height: 1.5
-#| fig-width: 6
-par(mar = c(3, 1, 1, 1) + 0.1)
-plot(eruptions, rep(0, n_eruptions), 
-  pch = "|", axes = FALSE)
-axis(1)
-box()
-```
-
-```{r}
-#| output: false
-avg_years_between_eruptions <- mean(diff(eruptions[-n_eruptions]))
-avg_years_between_eruptions
-```
-
-Based on data up to and including 1971, eruptions on La Palma happen every `{r} round(avg_years_between_eruptions, 1)` years on average.
-
-Studies of the magma systems feeding the volcano, such as @marrero2019, have proposed that there are two main magma reservoirs feeding the Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges and in turn feeds a shallower crustal reservoir (10-20km depth).
-
-Eight eruptions have been recorded since the late 1400s (@fig-timeline).
-
-Data and methods are discussed in @sec-data-methods.
-
-Let $x$ denote the number of eruptions in a year. Then, $x$ can be modeled by a Poisson distribution
-
-$$
-p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !}
-$$ {#eq-poisson}
-
-where $\lambda$ is the rate of eruptions per year. Using @eq-poisson, the probability of an eruption in the next $t$ years can be calculated.
-
-| Name                 | Year   |
-| -------------------- | ------ |
-| Current              | 2021   |
-| Teneguía             | 1971   |
-| Nambroque            | 1949   |
-| El Charco            | 1712   |
-| Volcán San Antonio   | 1677   |
-| Volcán San Martin    | 1646   |
-| Tajuya near El Paso  | 1585   |
-| Montaña Quemada      | 1492   |
-
-: Recent historic eruptions on La Palma {#tbl-history}
-
-@tbl-history summarises the eruptions recorded since the colonization of the islands by Europeans in the late 1400s.
-
-![Map of La Palma](images/la-palma-map.png){#fig-map}
-
-La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (@fig-map). 
-
-{{< embed notebooks/explore-earthquakes.qmd#fig-spatial-plot >}}
-
-@fig-spatial-plot shows the location of recent Earthquakes on La Palma.
+<!-- # ```{r} -->
+<!-- # #| include: false -->
+<!-- #  -->
+<!-- # eruptions <- c(1492, 1585, 1646, 1677, 1712, 1949, 1971, 2021) -->
+<!-- # n_eruptions <- length(eruptions) -->
+<!-- # ``` -->
+<!-- #  -->
+<!-- # ```{r} -->
+<!-- # #| label: fig-timeline -->
+<!-- # #| fig-cap: Timeline of recent earthquakes on La Palma -->
+<!-- # #| fig-alt: An event plot of the years of the last 8 eruptions on La Palma. -->
+<!-- # #| fig-height: 1.5 -->
+<!-- # #| fig-width: 6 -->
+<!-- # par(mar = c(3, 1, 1, 1) + 0.1) -->
+<!-- # plot(eruptions, rep(0, n_eruptions),  -->
+<!-- #   pch = "|", axes = FALSE) -->
+<!-- # axis(1) -->
+<!-- # box() -->
+<!-- # ``` -->
+<!-- #  -->
+<!-- # ```{r} -->
+<!-- # #| output: false -->
+<!-- # avg_years_between_eruptions <- mean(diff(eruptions[-n_eruptions])) -->
+<!-- # avg_years_between_eruptions -->
+<!-- # ``` -->
+<!-- #  -->
+<!-- # Based on data up to and including 1971, eruptions on La Palma happen every `{r} round(avg_years_between_eruptions, 1)` years on average. -->
+<!-- #  -->
+<!-- # Studies of the magma systems feeding the volcano, such as @marrero2019, have proposed that there are two main magma reservoirs feeding the Cumbre Vieja volcano; one in the mantle (30-40km depth) which charges and in turn feeds a shallower crustal reservoir (10-20km depth). -->
+<!-- #  -->
+<!-- # Eight eruptions have been recorded since the late 1400s (@fig-timeline). -->
+<!-- #  -->
+<!-- # Data and methods are discussed in @sec-data-methods. -->
+<!-- #  -->
+<!-- # Let $x$ denote the number of eruptions in a year. Then, $x$ can be modeled by a Poisson distribution -->
+<!-- #  -->
+<!-- # $$ -->
+<!-- # p(x) = \frac{e^{-\lambda} \lambda^{x}}{x !} -->
+<!-- # $$ {#eq-poisson} -->
+<!-- #  -->
+<!-- # where $\lambda$ is the rate of eruptions per year. Using @eq-poisson, the probability of an eruption in the next $t$ years can be calculated. -->
+<!-- #  -->
+<!-- # | Name                 | Year   | -->
+<!-- # | -------------------- | ------ | -->
+<!-- # | Current              | 2021   | -->
+<!-- # | Teneguía             | 1971   | -->
+<!-- # | Nambroque            | 1949   | -->
+<!-- # | El Charco            | 1712   | -->
+<!-- # | Volcán San Antonio   | 1677   | -->
+<!-- # | Volcán San Martin    | 1646   | -->
+<!-- # | Tajuya near El Paso  | 1585   | -->
+<!-- # | Montaña Quemada      | 1492   | -->
+<!-- #  -->
+<!-- # : Recent historic eruptions on La Palma {#tbl-history} -->
+<!-- #  -->
+<!-- # @tbl-history summarises the eruptions recorded since the colonization of the islands by Europeans in the late 1400s. -->
+<!-- #  -->
+<!-- # ![Map of La Palma](images/la-palma-map.png){#fig-map} -->
+<!-- #  -->
+<!-- # La Palma is one of the west most islands in the Volcanic Archipelago of the Canary Islands (@fig-map).  -->
+<!-- #  -->
+<!-- # {{< embed notebooks/explore-earthquakes.qmd#fig-spatial-plot >}} -->
+<!-- #  -->
+<!-- # @fig-spatial-plot shows the location of recent Earthquakes on La Palma. -->
 
 ## Data & Methods {#sec-data-methods}
 
